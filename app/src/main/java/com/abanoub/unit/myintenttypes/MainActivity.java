@@ -2,6 +2,7 @@ package com.abanoub.unit.myintenttypes;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -81,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
      * @param view Button that was clicked.
      */
     public void onClickShareText(View view){
-
+        String text = "This is my text to share it with you all...";
+        shareText(text);
     }
 
     private void openWebPage(String url){
@@ -115,5 +117,14 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_TEXT, message);
         if (intent.resolveActivity(getPackageManager()) != null)
             startActivity(intent);
+    }
+
+    private void shareText(String textToShare){
+        /* ShareCompat.IntentBuilder provides a fluent API for creating Intents */
+        ShareCompat.IntentBuilder.from(this)
+                .setType("text/plain")
+                .setChooserTitle("Learning How to Share")
+                .setText(textToShare)
+                .startChooser();
     }
 }
