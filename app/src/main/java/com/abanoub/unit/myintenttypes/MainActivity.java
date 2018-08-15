@@ -63,13 +63,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the Open Location in Map button is clicked. It will open the
-     * a map to the location represented by the variable addressString using implicit Intents.
+     * This method is called when the Open send email in email button is clicked. It will open the
+     * a mail app and add the sendTo email and the message
      *
      * @param view Button that was clicked.
      */
     public void onClickOpenEmailAddress(View view){
-
+        String email = "test@test.com";
+        String message = "Here is my message...";
+        openEmailAddress(email, message);
     }
 
     /**
@@ -102,4 +104,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
     }
 
+    private void openEmailAddress(String sendTo, String message){
+        // intent with action ACTION_SEND for opening an any mail app on your device
+        Intent intent = new Intent(Intent.ACTION_SEND);
+
+        // EXTRA_EMAIL for adding the send to email address/es
+        intent.putExtra(Intent.EXTRA_EMAIL, sendTo);
+
+        // EXTRA_TEXT for adding the message you want to send
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null)
+            startActivity(intent);
+    }
 }
