@@ -1,11 +1,11 @@
 package com.abanoub.unit.myintenttypes;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,8 +30,14 @@ public class MainActivity extends AppCompatActivity {
         mExecute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String text = mMessageText.getText().toString();
-                Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
+                /*
+                 * intent is responsible of moving to another activity by determine
+                 * first the context (the activity well leave it)
+                 * second the class (the activity well move to it)
+                 * that's what android called explicit intent
+                 */
+                Intent intent = new Intent(MainActivity.this, ChildActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -7,4 +7,7 @@
 
     <!-- string text hint for edit text -->
     <string name="edit_text_hint">Write your message</string>
+
+    <!-- string default text for text view -->
+    <string name="text_view_display">Display a message</string>
 </resources>
