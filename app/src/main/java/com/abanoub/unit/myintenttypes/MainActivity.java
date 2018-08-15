@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         mExecute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //retrieve the text from the mMessageText (EditText)
+                String text = mMessageText.getText().toString();
+
                 /*
                  * intent is responsible of moving to another activity by determine
                  * first the context (the activity well leave it)
@@ -37,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
                  * that's what android called explicit intent
                  */
                 Intent intent = new Intent(MainActivity.this, ChildActivity.class);
+
+                // Send the text of the EditText to ChildActivity to display it
+                intent.putExtra(ChildActivity.MESSAGE_KEY, text);
+
+                // move to ChildActivity
                 startActivity(intent);
             }
         });
