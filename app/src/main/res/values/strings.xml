@@ -3,11 +3,26 @@
 
     <!-- -->
     <!-- string text execute for button -->
-    <string name="button_execute">Execute</string>
+    <string name="button_execute">Explicit Execute</string>
+
+    <!-- string text for explicit header text -->
+    <string name="explicit_header_text_view">Explicit Intent</string>
+
+    <!-- string text for implicit header text -->
+    <string name="implicit_header_text_view">Implicit Intent</string>
 
     <!-- string text hint for edit text -->
     <string name="edit_text_hint">Write your message</string>
 
     <!-- string default text for text view -->
     <string name="text_view_display">Display a message</string>
+
+    <!-- string text Open Web Page for implicit button -->
+    <string name="implicit_web_page_button">Open Web Page</string>
+
+    <!-- string text Open email address for implicit button -->
+    <string name="implicit_email_address_button">Open Email Address</string>
+
+    <!-- string text share text for implicit button -->
+    <string name="implicit_share_text_button">Open Share Text</string>
 </resources>

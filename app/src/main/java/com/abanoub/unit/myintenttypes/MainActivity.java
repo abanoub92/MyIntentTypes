@@ -1,6 +1,7 @@
 package com.abanoub.unit.myintenttypes;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -49,4 +50,56 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * This method is called when the Open Website button is clicked. It will open the website
+     * specified by the URL represented by the variable urlAsString using implicit Intents.
+     *
+     * @param view Button that was clicked.
+     */
+    public void onClickOpenWebPage(View view){
+        String url = "https://android-developers.googleblog.com/";
+        openWebPage(url);
+    }
+
+    /**
+     * This method is called when the Open Location in Map button is clicked. It will open the
+     * a map to the location represented by the variable addressString using implicit Intents.
+     *
+     * @param view Button that was clicked.
+     */
+    public void onClickOpenEmailAddress(View view){
+
+    }
+
+    /**
+     * This method is called when the Share Text Content button is clicked. It will simply share
+     * the text contained within the String textThatYouWantToShare.
+     *
+     * @param view Button that was clicked.
+     */
+    public void onClickShareText(View view){
+
+    }
+
+    private void openWebPage(String url){
+        // Convert string text to uri to send it as a link
+        Uri uri = Uri.parse(url);
+
+        /*
+         * Here, we create the Intent with the action of ACTION_VIEW. This action allows the user
+         * to view particular content. In this case, our webpage URL.
+         */
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(uri);
+
+        /*
+         * This is a check we perform with every implicit Intent that we launch. In some cases,
+         * the device where this code is running might not have an Activity to perform the action
+         * with the data we've specified. Without this check, in those cases your app would crash.
+         */
+        if (intent.resolveActivity(getPackageManager()) != null)
+            startActivity(intent);
+    }
+
 }
